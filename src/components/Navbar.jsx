@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../index.css';
 
-function Navbar() {
+function Navbar({ isAuthenticated }) { // Receive isAuthenticated prop
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -15,6 +15,11 @@ function Navbar() {
         <li>
           <Link to="/about">À Propos</Link>
         </li>
+        {isAuthenticated && ( // Conditionally render the Profile link
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
